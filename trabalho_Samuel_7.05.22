@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+
+
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: darkBlue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: MyWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: [
+      Row(children: [container()]),
+    ]);
+  }
+}
+
+container() {
+  return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: NetworkImage(
+                  'https://images.unsplash.com/photo-1547721064-da6cfb341d50'),
+              colorFilter: ColorFilter.mode(
+                Colors.white.withOpacity(0.8),
+                BlendMode.modulate,
+              )),
+          borderRadius: BorderRadius.circular(40)),
+      width: 500,
+      height: 500,
+      padding: const EdgeInsets.all(100.0),
+      margin: const EdgeInsets.all(10.0),
+      child: Column(children: [
+        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(80),
+            ),
+            child: const Icon(
+              Icons.bookmark_border,
+              color: Colors.white,
+              size: 25.0,
+            ),
+          )
+        ]),
+        const SizedBox(height: 105),
+        Row(children: [
+          const SizedBox(width: 8),
+          const Text(
+              'Social Security Is \nRethinking How It Runs \nCustomer Service \nAfter Covid',
+              style: TextStyle(
+                fontSize:25,
+                fontWeight: FontWeight.bold,
+              ))],
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        Row(children: [
+          const SizedBox(width: 20),
+          const Icon(
+            Icons.circle,
+            color: Colors.blue,
+            size: 30.0,
+          ),
+          Column(children: const [
+            Text('USA', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text('TODAY', style: TextStyle(fontWeight: FontWeight.bold)),
+          ]),
+          const SizedBox(width: 100),
+          const Text('4h mai',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              )),
+        ]),
+        const SizedBox(height: 10),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: const [
+          Text('Mary Wilton',
+              style: TextStyle(
+                fontSize: 15,
+              )),
+          Icon(
+            Icons.circle,
+            color: Colors.white,
+            size: 3.0,
+          ),
+          Text('5 min Reads',
+              style: TextStyle(
+                fontSize: 15,
+              )),
+          Icon(
+            Icons.circle,
+            color: Colors.white,
+            size: 3.0,
+          ),
+          Text('54 Upvote',
+              style: TextStyle(
+                fontSize: 15,
+              ))
+        ])
+      ]));
+}
