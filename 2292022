@@ -1,0 +1,32 @@
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+
+}
+  Future<http.Response> salvarDados(String title) {
+  return http.post(
+    Uri.parse('http://10.0.3.132:1313/save-data'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+       "telefone": 3456789.toString(),
+      "name": "Sayuri",
+      "email": "sayurideandrade11@gmail.com",
+      "turma": "3ano INF"
+
+    }),
+  );
+}
+
+
+
+  floatingActionButton: FloatingActionButton(
+        onPressed: salvarDados,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
